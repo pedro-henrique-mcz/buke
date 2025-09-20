@@ -1,16 +1,13 @@
-from src.data.db import Connection
+from src.data.db import get_db
 from src.utils import utils
-import json
 
 db_param = 'json/db.json'
-
 param = utils.load_json(db_param)
 
-
-my_connection = Connection(**param)
-datas = my_connection.query('SELECT * FROM person')
-
-for data in datas:
-    print(data)
-
+with get_db(param) as db:
+    cur = db.cursor()
+    cur.execute('SELECT * FROM person;')
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
 
