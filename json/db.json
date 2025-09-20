@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "port" : 5432,
+    "dbname": "keep_in_touch",
+    "user": "postgres",
+    "password": "Pedro@1212"
+}
