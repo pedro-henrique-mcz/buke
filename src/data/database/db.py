@@ -40,7 +40,6 @@ class Connection():
         self._conn.commit()
         self._conn.close()
 
-
 def get_db(param):
     return Connection(param)
 

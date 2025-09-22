@@ -1,4 +1,4 @@
-from src.data.db import get_db
+from src.data.database.db import get_db
 from src.utils import utils
 
 db_param = 'json/db.json'
