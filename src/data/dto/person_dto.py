@@ -1,12 +1,25 @@
-'''Person's DTO file'''
-from dataclasses import dataclass
-from src.data.dto.person_dto_params import PersonDTOParams
+'''PersonDTOParams class' file'''
+from dataclasses import dataclass, field
+from typing import Optional
+import datetime
 
-@dataclass
+default_days = 14
+
+@dataclass(frozen=True)
 class PersonDTO:
-    '''Person DTO class'''
-    def __init__(self, data : PersonDTOParams) -> None:
-        '''PersonDTO class' constructor'''
-    pass   
-       
+    '''This function help us to 
+    hold and organize the params of the 
+    PersonDTO class'''
 
+    person_id : Optional[int] = None
+    first_name : str = ""
+    last_name : str = ""
+    nick_name : str = ""
+    interaction_frequency : int = default_days
+    next_interaction : datetime.date = field(
+        default_factory = lambda: datetime.date.today() + datetime.timedelta(days=default_days)
+    )
+    general_notes : str = ""
+    category_id : int = 1
+
+    
