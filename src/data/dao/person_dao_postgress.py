@@ -36,6 +36,18 @@ class PersonDAO():
         else:
             return None
    
+    def get_person_by_date(self, date):
+        '''Gets person by date in the bd'''
+        with self._conn as conn:
+            cur = conn.cursor()
+            cur.execute(f"SELECT * FROM PERSON WHERE next_interaction = '{date.strftime("%Y-%m-%d")}'")
+            row = cur.fetchone()
+
+        if row:
+            return row
+        else:
+            return False
+
     def get_persons(self) ->list[PersonDTO]|None:
         '''Search for all item from the Person table in the BD'''
         with self._conn as conn:
