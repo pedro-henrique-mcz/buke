@@ -1,5 +1,5 @@
 '''Person's DAO file'''
-from src.data.database.db import Connection 
+from src.data.dao.db import Connection 
 from src.data.dto.person_dto import PersonDTO
 from psycopg2.extras import RealDictCursor
 
@@ -76,14 +76,13 @@ class PersonDAO():
 
         return True
     
-    def update(self, person: dict) ->True:
+    def update(self, person) ->True:
         '''Update some info from person table'''
         with self._conn as conn:
             cur = conn.cursor()
             cur.execute("""
                 UPDATE person
-                SET first_name = 
-                    first_name = %(first_name)s,
+                SET first_name = %(first_name)s,
                     last_name = %(last_name)s,
                     nick_name =%(nick_name)s,
                     interaction_frequency = %(interaction_frequency)s,
