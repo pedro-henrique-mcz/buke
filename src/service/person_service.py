@@ -43,5 +43,5 @@ class PersonService():
          
         if last_person:
             next_day = len(self._controller.get_persons())
-            last_person['next_interaction'] += timedelta(days=next_day)
+            last_person[5] += timedelta(days=next_day)
             self._controller.update(last_person)

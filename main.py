@@ -27,6 +27,7 @@ param = utils.load_json(db_param)
 db = get_db(param)
 person_dao = PersonDAO(db)
 person_service = PersonService(person_dao=person_dao)
+name = person_service.set_yesterday()
 name = person_service.set_today()[1]
 
 
